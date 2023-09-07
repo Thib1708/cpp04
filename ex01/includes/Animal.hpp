@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Animal.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: thibaultgiraudon <thibaultgiraudon@stud    +#+  +:+       +#+        */
+/*   By: tgiraudo <tgiraudo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/17 13:11:57 by thibaultgir       #+#    #+#             */
-/*   Updated: 2023/05/24 17:06:12 by thibaultgir      ###   ########.fr       */
+/*   Updated: 2023/09/07 13:46:42 by tgiraudo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,11 +16,20 @@
 #include <iostream>
 #include "Brain.hpp"
 
+# define RESET		"\033[0m"
+# define BLACK		"\033[30m"
+# define RED		"\033[31m"
+# define GREEN		"\033[32m"
+# define YELLOW		"\033[33m"
+# define BLUE		"\033[34m"
+# define MAGENTA	"\033[35m"
+# define CYAN		"\033[36m"
+# define WHITE		"\033[37m"
+
 class Animal
 {
 	protected:
 			std::string _type;
-			Brain		*_brain;
 	public:
 			/* Constructors & Destructors */
 			Animal( void );
@@ -31,7 +40,6 @@ class Animal
 			/* Setters & Getters */
 			std::string const		getType( void ) const;
 			void					setType( const std::string & );
-			virtual Brain			*getBrain( void ) const;
 
 			/* Method */
 			virtual void    makeSound( void ) const;

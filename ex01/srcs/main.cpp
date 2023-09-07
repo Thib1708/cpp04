@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: thibaultgiraudon <thibaultgiraudon@stud    +#+  +:+       +#+        */
+/*   By: tgiraudo <tgiraudo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/24 09:32:02 by thibaultgir       #+#    #+#             */
-/*   Updated: 2023/05/24 17:37:29 by thibaultgir      ###   ########.fr       */
+/*   Updated: 2023/09/07 13:54:23 by tgiraudo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,67 +21,61 @@
 
 int main(void)
 {
+int		max = 4;
+	int		i;
+	Animal	*animals[max];
+	
+	// Init the table of animals
+	std::cout << BLUE << "-----CREATE DOGS-----" << RESET << std::endl;
+	for (i = 0; i < max / 2; i++)
 	{
-		const Animal *lotsOfAnimals[N_ANIMALS];
-
-		for (int i = 0; i < N_ANIMALS; i++)
-		{
-			if (i < N_ANIMALS / 2)
-				lotsOfAnimals[i] = new Dog();
-			else
-				lotsOfAnimals[i] = new Cat();
-		}
-		std::cout << "-------------------------------------\n";
-		std::cout << lotsOfAnimals[0]->getType() << std::endl;
-		std::cout << lotsOfAnimals[5]->getType() << std::endl;
-		Brain *brain;
-		brain = lotsOfAnimals[0]->getBrain();
-		brain->setIdea("I want sarshisitas!", 0);
-		brain->setIdea("Let's play ball!!", 1);
-		brain->setIdea("Feed me human!", 2);
-		std::cout << lotsOfAnimals[0]->getBrain()->getIdea(0) << std::endl;
-		std::cout << lotsOfAnimals[0]->getBrain()->getIdea(1) << std::endl;
-		std::cout << "-------------------------------------\n";
-		for (int i = 0; i < N_ANIMALS; i++)
-			delete lotsOfAnimals[i];
+		std::cout << GREEN << "Dog n•" << i << RESET << std::endl;
+		animals[i] = new Dog();
 	}
-	std::cout << "-------------------------------------\n";
+	std::cout << BLUE << "-----CREATE CATS-----" << RESET << std::endl;
+	for (i = max / 2; i < max; i++)
 	{
-		std::cout << "Check deep copy of Dog class using copy constructor:\n" << std::endl;
-		Dog *dogA = new Dog;
-		Dog *dogB = new Dog(*dogA);
-
-		delete dogA;
-		delete dogB;
+		std::cout << GREEN << "Cat n•" << i << RESET << std::endl;
+		animals[i] = new Cat();
 	}
-	std::cout << "-------------------------------------\n";
+
+	// Use the table to get types
+	std::cout << BLUE << "-----ANIMALS TYPES-----" << RESET << std::endl;
+	for (i = 0; i < max; i++)
 	{
-		std::cout << "Check deep copy of Dog class using assignment operator overload:\n" << std::endl;
-		Dog *dogA = new Dog;
-		Dog *dogB = new Dog;
-
-		*dogA = *dogB;
-		delete dogA;
-		delete dogB;
+		std::cout << animals[i]->getType() << std::endl;
 	}
-	std::cout << "-------------------------------------\n";
+	
+	// Free the memory
+	std::cout << BLUE << "----DELETED ANIMALS----" << RESET << std::endl;
+	for (i = 0; i < max; i++)
+	{	
+		std::cout << RED << "Delete animal n•" << i << RESET << std::endl;
+		delete animals[i];
+	}
+
+	// Fill brain ideas
+	std::cout << BLUE << "------FILL BRAIN-------" << RESET << std::endl;
+	
+	std::cout << GREEN << "Init Milou:" << RESET << std::endl;
+	Dog	*milou = new Dog();
+	milou->getBrain()->setIdea("My name is Milou!", 0);
+	
+	std::cout << GREEN << "Pluto is a copy of Milou." << RESET << std::endl;
+	Dog	*pluto(milou);
+
+	std::cout << YELLOW << "Idea of Milou: " << milou->getBrain()->getIdea(0) << RESET << std::endl;
+	std::cout << YELLOW << "Idea of Pluto: " << pluto->getBrain()->getIdea(0) << RESET << std::endl;
+	
+	delete	milou;
+
+	// Test deep copy
+	std::cout << BLUE << "-------DEEP COPY-------" << RESET << std::endl;
+	
+	Dog	basic;
 	{
-		std::cout << "Check deep copy of Cat class using copy constructor:\n" << std::endl;
-		Cat *catA = new Cat;
-		Cat *catB = new Cat(*catA);
-
-		delete catA;
-		delete catB;
+		Dog	tmp = basic;
 	}
-	std::cout << "-------------------------------------\n";
-	{
-		std::cout << "Check deep copy of Cat class using assignment operator overload:\n" << std::endl;
-		Cat *catA = new Cat;
-		Cat *catB = new Cat;
 
-		*catA = *catB;
-		delete catA;
-		delete catB;
-	}
 	return (0);
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: thibaultgiraudon <thibaultgiraudon@stud    +#+  +:+       +#+        */
+/*   By: tgiraudo <tgiraudo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/24 09:32:02 by thibaultgir       #+#    #+#             */
-/*   Updated: 2023/05/24 17:37:29 by thibaultgir      ###   ########.fr       */
+/*   Updated: 2023/09/07 16:45:40 by tgiraudo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,67 +21,17 @@
 
 int main(void)
 {
-	{
-		const Animal *lotsOfAnimals[N_ANIMALS];
+	std::cout << BLUE << "---- MILOU --------" << RESET << std::endl;
+	Dog	milou;
+	milou.makeSound();
+	
+	std::cout << YELLOW << "---- GARFIELD -----" << RESET << std::endl;
+	Cat	garfield;
+	garfield.makeSound();
+	
+	// std::cout << YELLOW << "-- ANIMAL -------" << RESET << std::endl;
+	// Animal	animal;
 
-		for (int i = 0; i < N_ANIMALS; i++)
-		{
-			if (i < N_ANIMALS / 2)
-				lotsOfAnimals[i] = new Dog();
-			else
-				lotsOfAnimals[i] = new Cat();
-		}
-		std::cout << "-------------------------------------\n";
-		std::cout << lotsOfAnimals[0]->getType() << std::endl;
-		std::cout << lotsOfAnimals[5]->getType() << std::endl;
-		Brain *brain;
-		brain = lotsOfAnimals[0]->getBrain();
-		brain->setIdea("I want sarshisitas!", 0);
-		brain->setIdea("Let's play ball!!", 1);
-		brain->setIdea("Feed me human!", 2);
-		std::cout << lotsOfAnimals[0]->getBrain()->getIdea(0) << std::endl;
-		std::cout << lotsOfAnimals[0]->getBrain()->getIdea(1) << std::endl;
-		std::cout << "-------------------------------------\n";
-		for (int i = 0; i < N_ANIMALS; i++)
-			delete lotsOfAnimals[i];
-	}
-	std::cout << "-------------------------------------\n";
-	{
-		std::cout << "Check deep copy of Dog class using copy constructor:\n" << std::endl;
-		Dog *dogA = new Dog;
-		Dog *dogB = new Dog(*dogA);
-
-		delete dogA;
-		delete dogB;
-	}
-	std::cout << "-------------------------------------\n";
-	{
-		std::cout << "Check deep copy of Dog class using assignment operator overload:\n" << std::endl;
-		Dog *dogA = new Dog;
-		Dog *dogB = new Dog;
-
-		*dogA = *dogB;
-		delete dogA;
-		delete dogB;
-	}
-	std::cout << "-------------------------------------\n";
-	{
-		std::cout << "Check deep copy of Cat class using copy constructor:\n" << std::endl;
-		Cat *catA = new Cat;
-		Cat *catB = new Cat(*catA);
-
-		delete catA;
-		delete catB;
-	}
-	std::cout << "-------------------------------------\n";
-	{
-		std::cout << "Check deep copy of Cat class using assignment operator overload:\n" << std::endl;
-		Cat *catA = new Cat;
-		Cat *catB = new Cat;
-
-		*catA = *catB;
-		delete catA;
-		delete catB;
-	}
+	std::cout << RED << "---- DESTRUCTORS --" << RESET << std::endl;
 	return (0);
 }

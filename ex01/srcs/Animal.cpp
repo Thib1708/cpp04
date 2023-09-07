@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Animal.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: thibaultgiraudon <thibaultgiraudon@stud    +#+  +:+       +#+        */
+/*   By: tgiraudo <tgiraudo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/17 13:11:57 by thibaultgir       #+#    #+#             */
-/*   Updated: 2023/05/24 17:06:07 by thibaultgir      ###   ########.fr       */
+/*   Updated: 2023/09/07 13:46:54 by tgiraudo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,8 +45,4 @@ std::string const Animal::getType( void ) const {
 
 void	Animal::setType( const std::string &type ) {
 	this->_type = type;
-}
-
-Brain	*Animal::getBrain( void ) const {
-	return this->_brain;
 }
