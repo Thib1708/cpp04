@@ -6,7 +6,7 @@
 /*   By: tgiraudo <tgiraudo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/17 13:11:57 by thibaultgir       #+#    #+#             */
-/*   Updated: 2023/09/07 13:33:23 by tgiraudo         ###   ########.fr       */
+/*   Updated: 2023/09/26 10:27:17 by tgiraudo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,10 @@
 
 Brain::Brain( void ) {
 	std::cout << "[ BRAIN ] Constructor called" << std::endl;
+	for (int i = 0; i < 50; i++ )
+		this->_ideas[i] = "eat";
+	for (int i = 50; i < 100; i++ )
+		this->_ideas[i] = "play";
 	return ;
 }
 

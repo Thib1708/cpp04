@@ -6,7 +6,7 @@
 /*   By: tgiraudo <tgiraudo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/24 09:32:02 by thibaultgir       #+#    #+#             */
-/*   Updated: 2023/09/07 13:54:23 by tgiraudo         ###   ########.fr       */
+/*   Updated: 2023/09/26 10:32:30 by tgiraudo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@
 
 int main(void)
 {
-int		max = 4;
+	int		max = 4;
 	int		i;
 	Animal	*animals[max];
 	
@@ -73,8 +73,12 @@ int		max = 4;
 	std::cout << BLUE << "-------DEEP COPY-------" << RESET << std::endl;
 	
 	Dog	basic;
+	basic.getBrain()->setIdea("Test", 0);
+	basic.getBrain()->setIdea("un autre test", 50);
 	{
 		Dog	tmp = basic;
+		for (int i = 0; i < 100; i++)
+			std::cout << tmp.getBrain()->getIdea(i) << std::endl;
 	}
 
 	return (0);

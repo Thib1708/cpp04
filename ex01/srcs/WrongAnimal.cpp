@@ -6,13 +6,13 @@
 /*   By: tgiraudo <tgiraudo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/17 13:11:57 by thibaultgir       #+#    #+#             */
-/*   Updated: 2023/09/07 13:33:10 by tgiraudo         ###   ########.fr       */
+/*   Updated: 2023/09/26 10:25:57 by tgiraudo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/WrongAnimal.hpp"
 
-WrongAnimal::WrongAnimal( void ) {
+WrongAnimal::WrongAnimal( void ): _type("Wrong type") {
 	std::cout << "[ WRONGANIMAL ] Constructor called" << std::endl;
 	return ;
 }
